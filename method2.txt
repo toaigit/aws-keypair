@@ -1,0 +1,9 @@
+You can also do the following:
+1.  Generate your key pair using ssh-keygen
+    ssh-keygen -t rsa -b 4096 -q -N "" -f toai_id_rsa
+    This will genrate toai_id_rsa.pub and toai_id_rsa file.
+2   Run the terraform commands (terraform init, plan, apply) with the following tf file
+resource "aws_key_pair" "mykey" {
+  key_name   = "key-tf"
+  public_key = file("toai_id_rsa.pub")
+  }
